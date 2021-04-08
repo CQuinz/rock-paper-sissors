@@ -2,10 +2,8 @@
 const playBtn = document.querySelector('.intro button');
 const playerHand = document.querySelector('.player-hand');
 const computerHand = document.querySelector('.computer-hand');
-// const rockOptionBtn = document.querySelector('rock');
-// const paperOptionBtn = document.querySelector('paper');
-// const sissorsOptionBtn = document.querySelector('sissors');
 const buttonOptions = document.querySelectorAll('.options button');
+const RandomOptions = ['rock', 'paper', 'sissors'];
 
 let playerScoreDisplay = document.querySelector('.player-score p').textContent;
 let computerScoreDisplay = document.querySelector('.computer-score p').textContent;
@@ -18,7 +16,8 @@ let roundNum = 0;
 // Functions
 
 const generateRandomOption = ()=>{
-  
+const option = RandomOptions[Math.floor(Math.random()*3)];
+return option;
 }
 
 const selectHandOption = ()=>{
