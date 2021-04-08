@@ -17,10 +17,22 @@ let roundNum = 0;
 
 // Functions
 
+const generateRandomOption = ()=>{
+  
+}
+
+const selectHandOption = ()=>{
+
+}
+
+const playGame = ()=>{
+
+}
 
 //Event Listeners 
-// playBtn.addEventListener('click', playGame);
-buttonOptions.array.forEach(button => {
-  console.log(button.className);
+playBtn.addEventListener('click', playGame);
+buttonOptions.forEach((button) => {
+  // console.log(button.className);
+  button.addEventListener('click', ()=> selectHandOption(button.className));;
 });
 
