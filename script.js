@@ -9,7 +9,7 @@ let playerScoreDisplay = document.querySelector('.player-score p').textContent;
 let computerScoreDisplay = document.querySelector('.computer-score p').textContent;
 
 let playingGame = false;
-let playersTurn = false
+let playerWins = '';
 let roundNum = 0;
 
 
@@ -37,12 +37,22 @@ const computerPicks = ()=>{
 }
 
 const playGame = ()=>{
+  if(playingGame === !true){
+    return;
+    }else{
+      //Event Listeners 
+      playBtn.addEventListener('click', ()=>{
+        playingGame = true;
+        playGame();
+      });
 
+      buttonOptions.forEach((button) => {
+        button.addEventListener('click', ()=> playerPicks(button.className));
+      });
+
+
+  }
 }
 
-//Event Listeners 
-playBtn.addEventListener('click', playGame);
-buttonOptions.forEach((button) => {
-  button.addEventListener('click', ()=> playerPicks(button.className));
-});
+
 
