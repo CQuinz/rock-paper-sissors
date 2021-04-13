@@ -15,6 +15,10 @@ let roundNum = 0;
 
 // Functions
 
+const changeHandDisplay = (whichPlayer, handOption)=>{
+  whichPlayer.src = `assets/${handOption}.png`;
+  console.log(whichPlayer);
+}
 
 
 const generateRandomOption = ()=>{
@@ -22,8 +26,9 @@ const randomOption = RandomOptions[Math.floor(Math.random()*3)];
 return randomOption;
 }
 
-const selectHandOption = (option)=>{
+const playerPicks = (option)=>{
   console.log(option);
+  changeHandDisplay(playerHand, option);
 }
 
 const computerPicks = ()=>{
@@ -39,7 +44,7 @@ const playGame = ()=>{
 playBtn.addEventListener('click', playGame);
 buttonOptions.forEach((button) => {
   // console.log(button.className);
-  button.addEventListener('click', ()=> selectHandOption(button.className));
+  button.addEventListener('click', ()=> playerPicks(button.className));
   
 });
 
