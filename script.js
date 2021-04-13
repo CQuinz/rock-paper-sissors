@@ -33,7 +33,7 @@ const playerPicks = (option)=>{
 
 const computerPicks = ()=>{
   const computerSelection = generateRandomOption();
-  console.log(computerSelection);
+  changeHandDisplay(computerHand, computerSelection);
 }
 
 const playGame = ()=>{
@@ -43,8 +43,6 @@ const playGame = ()=>{
 //Event Listeners 
 playBtn.addEventListener('click', playGame);
 buttonOptions.forEach((button) => {
-  // console.log(button.className);
   button.addEventListener('click', ()=> playerPicks(button.className));
-  
 });
 
