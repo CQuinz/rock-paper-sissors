@@ -29,6 +29,7 @@ return randomOption;
 const playerPicks = (option)=>{
   console.log(option);
   changeHandDisplay(playerHand, option);
+  computerPicks();
 }
 
 const computerPicks = ()=>{
@@ -37,22 +38,19 @@ const computerPicks = ()=>{
 }
 
 const playGame = ()=>{
-  if(playingGame === !true){
-    return;
-    }else{
-      //Event Listeners 
-      playBtn.addEventListener('click', ()=>{
-        playingGame = true;
-        playGame();
-      });
+  playingGame = true;
 
-      buttonOptions.forEach((button) => {
-        button.addEventListener('click', ()=> playerPicks(button.className));
-      });
-
-
-  }
+  if(playingGame === true){
+     
+    buttonOptions.forEach((button) => {
+      button.addEventListener('click', ()=> playerPicks(button.className));
+    });
+    
+    }
+  
 }
 
+//Event Listeners 
+playBtn.addEventListener('click', playGame);
 
 
