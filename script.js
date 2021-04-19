@@ -14,6 +14,9 @@ let roundNum = 0;
 
 
 // Functions
+const whoWinsRound = (playersHand, computersHand) =>{
+  
+}
 
 const changeHandDisplay = (whichPlayer, handOption)=>{
   whichPlayer.src = `assets/${handOption}.png`;
@@ -35,6 +38,7 @@ const playerPicks = (option)=>{
 const computerPicks = ()=>{
   const computerSelection = generateRandomOption();
   changeHandDisplay(computerHand, computerSelection);
+  // playingGame = false;
 }
 
 const playGame = ()=>{
@@ -45,8 +49,9 @@ const playGame = ()=>{
     buttonOptions.forEach((button) => {
       button.addEventListener('click', ()=> playerPicks(button.className));
     });
-    
-    }
+  }
+  // Logic for winning round
+  
   
 }
 
