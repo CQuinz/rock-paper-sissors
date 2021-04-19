@@ -3,7 +3,7 @@ const playBtn = document.querySelector('.intro button');
 const playerHand = document.querySelector('.player-hand');
 const computerHand = document.querySelector('.computer-hand');
 const buttonOptions = document.querySelectorAll('.options button');
-const RandomOptions = ['rock', 'paper', 'sissors'];
+
 
 let playerScoreDisplay = document.querySelector('.player-score p').textContent;
 let computerScoreDisplay = document.querySelector('.computer-score p').textContent;
@@ -15,7 +15,7 @@ let roundNum = 0;
 
 // Functions
 const whoWinsRound = (playersHand, computersHand) =>{
-  
+ if(playersHand === computersHand) console.log('tie!');
 }
 
 const changeHandDisplay = (whichPlayer, handOption)=>{
@@ -25,8 +25,9 @@ const changeHandDisplay = (whichPlayer, handOption)=>{
 
 
 const generateRandomOption = ()=>{
-const randomOption = RandomOptions[Math.floor(Math.random()*3)];
-return randomOption;
+  const randomOptions = ['rock', 'paper', 'sissors'];
+  const randomOption = randomOptions[Math.floor(Math.random()*3)];
+  return randomOption;
 }
 
 const playerPicks = (option)=>{
