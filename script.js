@@ -7,6 +7,7 @@ const buttonOptions = document.querySelectorAll('.options button');
 
 let playerScoreDisplay = document.querySelector('.player-score p').textContent;
 let computerScoreDisplay = document.querySelector('.computer-score p').textContent;
+let winnerMessage = document.querySelector('.winner');
 
 let playingGame = false;
 let playerWins = '';
@@ -44,6 +45,10 @@ const computerPicks = ()=>{
 
 const playGame = ()=>{
   playingGame = true;
+
+  const intro = document.querySelector('.intro');
+  winnerMessage.classList.add('fade-in');
+  intro.classList.add('fade-out');
 
   if(playingGame === true){
      
