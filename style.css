@@ -3,24 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
-section{
-  height: 100vh;
+body{
   background: darkslategrey;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.intro{
+section{
+  height: 100vh;
+  max-width: 960px; 
+}
+
+.intro, .match{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 30vh;
   color: white;
 }
 
-.score{
+.score, .options{
   color: white;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,4 +45,12 @@ button{
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+h1{
+  font-size: 30px;
+}
+
+.winner{
+  margin-top: 100px;
 }
