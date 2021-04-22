@@ -8,6 +8,8 @@ const buttonOptions = document.querySelectorAll('.options button');
 let playerScoreDisplay = document.querySelector('.player-score p').textContent;
 let computerScoreDisplay = document.querySelector('.computer-score p').textContent;
 let winnerMessage = document.querySelector('.winner');
+let playerScore = 0;
+let computerScore = 0;
 
 let playingGame = false;
 let playerWins = '';
@@ -16,7 +18,36 @@ let roundNum = 0;
 
 // Functions
 const whoWinsRound = (playersHand, computersHand) =>{
- if(playersHand === computersHand) console.log('tie!');
+  const winnerText;
+ if(playersHand === computersHand){
+  return winnerText = 'Tie!';
+ } else if(playersHand === 'rock'){
+  if(computersHand === 'paper'){
+    computerScore++;
+    return winnerText = 'Paper beats rock. Computer wins!';
+  }else{
+    playerScore++;
+    return winnerText = 'Rock beats sissors. Player wins!';
+  }
+ }else if(playersHand === 'paper'){ 
+  if(computersHand === 'sissors'){
+    computerScore++;
+    return winnerText = 'Sissors beats paper. Computer wins!'
+  }else{
+    playerScore++;
+    return winnerText = 'Paper beats rock. Player wins!'
+  }
+ }else if(playersHand === 'sissors'){
+  if(computersHand === 'rock'){
+    computerScore++;
+    return winnerText = 'Rock beats sissors. Computer wins!'
+  }else{
+    playerScore++;
+    return winnerText = 'Sissors cuts rock. Player wins!'
+  }
+ }
+}
+
 }
 
 const changeHandDisplay = (whichPlayer, handOption)=>{

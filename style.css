@@ -36,7 +36,11 @@ section{
 
 .winner{
   opacity: 0;
-  
+  cursor: default;
+}
+
+.intro button{
+  z-index: 50;
 }
 
 button{
@@ -50,6 +54,21 @@ button{
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.player-hand{
+  transform:rotateY(180deg);
+}
+
+.vertical-animation{
+  transform:translateY(-10%);
+  transform:translateY(10%);
+  transform:translateY(-20%);
+  transform:translateY(-20%);
+  transform:translateY(-30%);
+  transform:translateY(30%);
+  transform:translateY(-40%);
+  transition: transform 300ms;
 }
 
 .fade-out{
@@ -69,3 +88,4 @@ button{
 h1{
   font-size: 30px;
 }
+
