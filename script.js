@@ -17,39 +17,45 @@ let roundNum = 0;
 // Functions
 const whoWinsRound = (playersHand, computersHand) => {
   let winnerText = "";
+  // Check for a tie
   if (playersHand === computersHand) {
-    return (winnerText = "Tie!");
-  } else if (playersHand === "rock") {
-    if (computersHand === "paper") {
-      computerScore++;
-       winnerText = "Paper beats rock. Computer wins!";
-    } else {
-      playerScore++;
-       winnerText = "Rock beats sissors. Player wins!";
-    }
-  } else if (playersHand === "paper") {
-    if (computersHand === "sissors") {
-      computerScore++;
-       winnerText = "Sissors beats paper. Computer wins!";
-    } else {
-      playerScore++;
-       winnerText = "Paper beats rock. Player wins!";
-    }
-  } else if (playersHand === "sissors") {
-    if (computersHand === "rock") {
-      computerScore++;
-       winnerText = "Rock beats sissors. Computer wins!";
-    } else {
-      playerScore++;
-      winnerText = "Sissors cuts paper. Player wins!";
+     winnerText = "Tie!";
+     
+  }else{
+    // Check if player has rock
+    if (playersHand === "rock") {
+      if (computersHand === "paper") {
+        computerScore++;
+        winnerText = "Paper beats rock. Computer wins!";
+      } else {
+        playerScore++;
+        winnerText = "Rock beats sissors. Player wins!";
+      }
+      // Check if player has paper
+    } else if (playersHand === "paper") {
+      if (computersHand === "sissors") {
+        computerScore++;
+        winnerText = "Sissors beats paper. Computer wins!";
+      } else {
+        playerScore++;
+        winnerText = "Paper beats rock. Player wins!";
+      }
+      // Check if player has sissors
+    } else if (playersHand === "sissors") {
+      if (computersHand === "rock") {
+        computerScore++;
+        winnerText = "Rock beats sissors. Computer wins!";
+      } else {
+        playerScore++;
+        winnerText = "Sissors cuts paper. Player wins!";
+      }
     }
   }
   playerScoreDisplay.textContent = playerScore;
   computerScoreDisplay.textContent = computerScore;
   winnerMessage.textContent = winnerText;
-  console.log('PlayerScore: ', playerScore);
-  console.log('computerScore: ', computerScore);
   console.log('computersHand: ',computersHand);
+  console.log('playersHand: ',playersHand);
 }
 
 const changeHandDisplay = (whichPlayer, handOption) => {
@@ -88,7 +94,6 @@ const playGame = () => {
       button.addEventListener("click", () => playerPicks(button.className));
     });
   }
-  // Logic for winning round
 };
 
 //Event Listeners
