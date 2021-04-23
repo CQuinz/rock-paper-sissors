@@ -4,9 +4,8 @@ const playerHand = document.querySelector(".player-hand");
 const computerHand = document.querySelector(".computer-hand");
 const buttonOptions = document.querySelectorAll(".options button");
 
-let playerScoreDisplay = document.querySelector(".player-score p").textContent;
-let computerScoreDisplay = document.querySelector(".computer-score p")
-  .textContent;
+let playerScoreDisplay = document.querySelector(".player-score p");
+let computerScoreDisplay = document.querySelector(".computer-score p");
 let winnerMessage = document.querySelector(".winner");
 let playerScore = 0;
 let computerScore = 0;
@@ -17,42 +16,45 @@ let roundNum = 0;
 
 // Functions
 const whoWinsRound = (playersHand, computersHand) => {
-  const winnerText = "";
+  let winnerText = "";
   if (playersHand === computersHand) {
     return (winnerText = "Tie!");
   } else if (playersHand === "rock") {
     if (computersHand === "paper") {
       computerScore++;
-      return (winnerText = "Paper beats rock. Computer wins!");
+       winnerText = "Paper beats rock. Computer wins!";
     } else {
       playerScore++;
-      return (winnerText = "Rock beats sissors. Player wins!");
+       winnerText = "Rock beats sissors. Player wins!";
     }
   } else if (playersHand === "paper") {
     if (computersHand === "sissors") {
       computerScore++;
-      return (winnerText = "Sissors beats paper. Computer wins!");
+       winnerText = "Sissors beats paper. Computer wins!";
     } else {
       playerScore++;
-      return (winnerText = "Paper beats rock. Player wins!");
+       winnerText = "Paper beats rock. Player wins!";
     }
   } else if (playersHand === "sissors") {
     if (computersHand === "rock") {
       computerScore++;
-      return (winnerText = "Rock beats sissors. Computer wins!");
+       winnerText = "Rock beats sissors. Computer wins!";
     } else {
       playerScore++;
-      return (winnerText = "Sissors cuts rock. Player wins!");
+      winnerText = "Sissors cuts paper. Player wins!";
     }
   }
-  playerScoreDisplay = playerScore;
-  computerScoreDisplay = computerScore;
+  playerScoreDisplay.textContent = playerScore;
+  computerScoreDisplay.textContent = computerScore;
   winnerMessage.textContent = winnerText;
+  console.log('PlayerScore: ', playerScore);
+  console.log('computerScore: ', computerScore);
+  console.log('computersHand: ',computersHand);
 }
 
 const changeHandDisplay = (whichPlayer, handOption) => {
   whichPlayer.src = `assets/${handOption}.png`;
-  console.log(whichPlayer);
+  // console.log(whichPlayer);
 };
 
 const generateRandomOption = () => {
@@ -62,15 +64,16 @@ const generateRandomOption = () => {
 };
 
 const playerPicks = (option) => {
-  console.log(option);
+  // console.log(option);
   changeHandDisplay(playerHand, option);
-  computerPicks();
+   computerPicks();
+   whoWinsRound(option, computerPicks());
 };
 
 const computerPicks = () => {
   const computerSelection = generateRandomOption();
   changeHandDisplay(computerHand, computerSelection);
-  whoWinsRound(playerHand.className, computerHand.className);
+  return computerSelection;
 };
 
 const playGame = () => {
