@@ -20,7 +20,6 @@ const whoWinsRound = (playersHand, computersHand) => {
   // Check for a tie
   if (playersHand === computersHand) {
      winnerText = "Tie!";
-     
   }else{
     // Check if player has rock
     if (playersHand === "rock") {
